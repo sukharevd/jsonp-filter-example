@@ -33,7 +33,7 @@ public class BookServiceImpl implements BookService {
     private static final long FILE_SIZE_LIMIT = 1024 * 1024;
     
     /** Path to directory to which files will be uploaded. Web-service should have writing access to it. */
-    private static final String UPLOAD_DIR_PATH = "/home/dmitriy/Desktop/upload/";
+    private static final String UPLOAD_DIR_PATH = System.getProperty("java.io.tmpdir") + File.separator;
     
     /** Collection of books. */
     static Map<String, Book> index = new HashMap<String, Book>();
