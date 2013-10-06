@@ -1,0 +1,67 @@
+<html>
+<body>
+  <form name="myform" id="myform" action="http://localhost:9998/books/upload" method="post" enctype="multipart/form-data">
+    <table id="mytable">
+      <tr>
+        <td>Title:</td>
+        <td><input type="text" name="title" /></td>
+      </tr>
+      
+      <tr>
+        <td>Author:</td>
+        <td><input type="text" name="author[]" onchange="addAuthor();" /></td>
+      </tr>
+      
+      <tr id="isbn_row">
+        <td>ISBN:</td>
+        <td><input type="text" name="isbn" id="isbn" /></td>
+      </tr>
+      
+      <tr>
+        <td></td><td><input type="file" name="file" /></td>
+      </tr>
+      
+      <tr>
+        <td></td><td><input type="submit" value="Submit" /></td>
+      </tr>
+    </table>
+  </form>
+  <script type="text/javascript">
+    function addAuthor()
+    {
+		removeEmptyAuthors();
+		insertNewAuthor();
+	}
+	
+	function removeEmptyAuthors()
+	{
+		var x = document.getElementsByName("author[]");
+		var i = x.length - 1;
+		for (i; i >= 0; i--) {
+			if (x[i].value.length == 0) {
+				// delete tr element
+				var firstAuthorIdx = 1;
+				document.getElementById("mytable").deleteRow(firstAuthorIdx + i);
+			}
+		}
+	}
+	
+	function insertNewAuthor(form) {
+		var table = document.getElementById("mytable");
+	    var isbn_row = document.getElementById("isbn_row");
+	    var authorLabel = document.createTextNode("Author: ");
+		var authorInput = document.createElement("input");
+		
+		authorInput.setAttribute("type", "text");
+		authorInput.setAttribute("name", "author[]");
+		authorInput.setAttribute("onchange", "addAuthor()");
+		
+		var row = table.insertRow(isbn_row.rowIndex);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1)
+		cell1.appendChild(authorLabel);
+		cell2.appendChild(authorInput);
+	}
+  </script>
+</body>
+</html>

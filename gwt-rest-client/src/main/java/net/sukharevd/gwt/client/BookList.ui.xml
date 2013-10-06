@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:b="urn:import:com.github.gwtbootstrap.client.ui">
+    <g:FlowPanel>
+        <b:Button ui:field="loadBooksButton"
+                  type="PRIMARY"
+                  size="LARGE"
+                  block="true"
+                  text="Load books"/>
+        <g:FlowPanel ui:field="bookListSpaceholder"/>
+
+    </g:FlowPanel>
+</ui:UiBinder>
