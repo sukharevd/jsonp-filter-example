@@ -1,13 +1,14 @@
 jsonp-filter-example
 ====================
 
-==Building==
+Building
+--------
 
-===jersey project===
+**Jersey web-services**
 
     mvn -Djetty.port=9998 clean install jetty:run
 
-===GWT client===
+**GWT client**
 
     mvn clean install
 
