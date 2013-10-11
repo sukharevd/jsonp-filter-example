@@ -1,8 +1,8 @@
 jsonp-filter-example
 ====================
 
-Building
---------
+Building & Running
+------------------
 
 **Jersey web-services**
 
